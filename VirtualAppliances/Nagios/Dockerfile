@@ -11,9 +11,6 @@ RUN /tmp/install-supervisor.sh
 ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install the services for this VirtualAppliance
-#ADD scripts/install-nagios.sh /tmp/
-#RUN chmod +x /tmp/install-nagios.sh
-#RUN /tmp/install-nagios.sh
 RUN curl -s https://fedoraproject.org/static/217521F6.txt | rpm --import add --
 RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN yum -y install nagios nagios-plugins-all nagios-plugins-nrpe nrpe php httpd
@@ -23,7 +20,4 @@ ADD conf/http_passwd /etc/nagios/passwd
 EXPOSE 80 22
 
 # Start the Services
-#ADD scripts/start.sh /tmp/start.sh
-#RUN chmod +x /tmp/start.sh
-#CMD /tmp/start.sh
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
