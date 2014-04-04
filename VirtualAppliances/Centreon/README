@@ -1,0 +1,13 @@
+This builds a Centreon image:
+
+Including:
+
+Nagios
+NDOUtils
+Centreon
+sshd
+httpd
+PHP 
+Perl
+RRDTools
+SNMP

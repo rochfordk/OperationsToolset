@@ -1,0 +1,7 @@
+This builds a standalone nagios image:
+
+Including:
+
+Nagios
+sshd
+httpd
