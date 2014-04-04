@@ -1,4 +1,4 @@
-FROM centos
+FROM rochfordk/nagios
 MAINTAINER Keith Rochford <keith_rochford@dell.com>
 
 # Prerequisites
@@ -12,10 +12,10 @@ ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install the services for this VirtualAppliance
 # nagios
-ADD scripts/install-nagios.sh /tmp/
-RUN chmod +x /tmp/install-nagios.sh
-RUN /tmp/install-nagios.sh
-ADD conf/http_passwd /etc/nagios/passwd
+#ADD scripts/install-nagios.sh /tmp/
+#RUN chmod +x /tmp/install-nagios.sh
+#RUN /tmp/install-nagios.sh
+#ADD conf/http_passwd /etc/nagios/passwd
 # Password12
 
 # ndoutils
