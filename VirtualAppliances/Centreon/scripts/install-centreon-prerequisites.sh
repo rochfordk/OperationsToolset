@@ -7,7 +7,8 @@ rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
  
 uname -i
 # for me 'x86_64' is the result so I'll choose the x86_64 version
-wget -N http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+#wget -N http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+wget -N http://apt.sw.be/redhat/el6/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 rpm -i rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
   
 # Installing Apache2 + PHP
