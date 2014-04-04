@@ -2,7 +2,7 @@ This builds a Centreon image:
 
 Including:
 
-Nagios
+*Nagios
 NDOUtils
 Centreon
 sshd

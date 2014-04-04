@@ -2,7 +2,7 @@ FROM rochfordk/nagios
 MAINTAINER Keith Rochford <keith_rochford@dell.com>
 
 # Prerequisites
-RUN yum -y install openssh-server
+#RUN yum -y install openssh-server
 
 # Install Supervisor for process control
 ADD scripts/install-supervisor.sh /tmp/
@@ -11,7 +11,7 @@ RUN /tmp/install-supervisor.sh
 ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install the services for this VirtualAppliance
-# nagios
+# nagios - Uncomment if building from base image
 #ADD scripts/install-nagios.sh /tmp/
 #RUN chmod +x /tmp/install-nagios.sh
 #RUN /tmp/install-nagios.sh
@@ -19,11 +19,14 @@ ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Password12
 
 # ndoutils
+ADD scripts/install-ndoutils.sh /tmp/
+RUN chmod +x /tmp/install-ndoutils.sh
+RUN /tmp/install-ndoutils.sh
 
 # centreon-prerequisites
-ADD scripts/install-centreon-prerequisites.sh /tmp/
-RUN chmod +x /tmp/install-centreon-prerequisites.sh
-RUN /tmp/install-centreon-prerequisites.sh
+#ADD scripts/install-centreon-prerequisites.sh /tmp/
+#RUN chmod +x /tmp/install-centreon-prerequisites.sh
+#RUN /tmp/install-centreon-prerequisites.sh
 
 # centreon-answersfile
 
