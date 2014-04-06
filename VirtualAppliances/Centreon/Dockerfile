@@ -24,14 +24,16 @@ RUN chmod +x /tmp/install-ndoutils.sh
 RUN /tmp/install-ndoutils.sh
 
 # centreon-prerequisites
-#ADD scripts/install-centreon-prerequisites.sh /tmp/
-#RUN chmod +x /tmp/install-centreon-prerequisites.sh
-#RUN /tmp/install-centreon-prerequisites.sh
+ADD scripts/install-centreon-prerequisites.sh /tmp/
+RUN chmod +x /tmp/install-centreon-prerequisites.sh
+RUN /tmp/install-centreon-prerequisites.sh
 
 # centreon-answersfile
+ADD conf/answers /tmp/
 
 # centreon-install
-
+RUN wget http://yum.centreon.com/standard/3.0/stable/ces-standard.repo -O /etc/yum.repos.d/ces-standard.repo
+RUN yum install centreon-base-config-nagios centreon
 
 
 
