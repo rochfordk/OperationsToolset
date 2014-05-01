@@ -6,8 +6,7 @@ MAINTAINER Keith Rochford <keith_rochford@dell.com>
 #RUN echo "deb http://archive.ubuntu.com/ubuntu quantal main universe multiverse" > /etc/apt/sources.list
 RUN yum update -y
 RUN yum install -y wget java-1.6.0-openjdk.x86_64
-RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O /opt/logstash.jar --no-check-certificate
-#RUN wget http://logstash.objects.dreamhost.com/release/logstash-1.1.13-flatjar.jar -O /opt/logstash.jar --no-check-certificate
+RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4-flatjar.jar -O /opt/logstash.jar --no-check-certificate
 ADD scripts/run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 #RUN rm -rf /tmp/*
