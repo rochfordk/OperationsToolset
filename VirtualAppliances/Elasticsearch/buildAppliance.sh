@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo docker build -t rochfordk/logstash .
+sudo docker build -t rochfordk/elasticsearch .
