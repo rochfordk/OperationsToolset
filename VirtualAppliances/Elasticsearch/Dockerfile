@@ -9,7 +9,7 @@ MAINTAINER Keith Rochford <keith_rochford@dell.com>
 
 # Update
 RUN yum update -y
-
+RUN yum install -y tar
 # Install Java
 RUN yum install -y wget java-1.7.0-openjdk.x86_64
 ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0-openjdk.x86_64
