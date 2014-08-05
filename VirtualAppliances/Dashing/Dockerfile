@@ -4,6 +4,14 @@ MAINTAINER Keith Rochford <keith_rochford@dell.com>
 # Update
 RUN yum -y update
 
+# Install Supervisor for process control
+ADD scripts/install-supervisor.sh /tmp/
+RUN chmod +x /tmp/install-supervisor.sh
+RUN /tmp/install-supervisor.sh
+ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# start script for dashing
+ADD scripts/dashing-start.sh /tmp/
+RUN chmod +x /tmp/dashing-start.sh
 
 # Install prerequisite dev libraries
 RUN yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel 
@@ -45,5 +53,6 @@ RUN cd dashing-openstack && /usr/local/rvm/rubies/ruby-1.9.3-p547/lib/ruby/gems/
 #RUN echo 'root:secret' |chpasswd
 
 EXPOSE 22 3030
-CMD    ["/bin/bash cd dashing-openstack && dashing start"]
+CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+#CMD    ["/bin/bash cd dashing-openstack && dashing start"]
 #CMD    ["/bin/bash"]
