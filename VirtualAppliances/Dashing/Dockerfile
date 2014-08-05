@@ -45,5 +45,5 @@ RUN cd dashing-openstack && /usr/local/rvm/rubies/ruby-1.9.3-p547/lib/ruby/gems/
 #RUN echo 'root:secret' |chpasswd
 
 EXPOSE 22 3030
-CMD    ["cd dashing-openstack && dashing start"]
+CMD    ["/bin/bash cd dashing-openstack && dashing start"]
 #CMD    ["/bin/bash"]
