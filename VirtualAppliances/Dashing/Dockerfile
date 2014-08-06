@@ -46,13 +46,7 @@ RUN yum -y install nodejs
 RUN git clone https://github.com/rochfordk/dashing-openstack.git
 RUN cd dashing-openstack && /usr/local/rvm/rubies/ruby-1.9.3-p547/lib/ruby/gems/1.9.1/gems/bundler-1.6.2/bin/bundle
 
-# Install SSH for test
-#RUN yum install -y openssh-server
-#RUN mkdir /var/run/sshd
-#RUN /usr/bin/ssh-keygen -A 
-#RUN echo 'root:secret' |chpasswd
-
-EXPOSE 22 3030
+EXPOSE 3030
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 #CMD    ["/bin/bash cd dashing-openstack && dashing start"]
 #CMD    ["/bin/bash"]
