@@ -1,11 +1,5 @@
 config:
-  mon_type: icinga
-icinga:
-  prod:
-    host: '192.168.5.160'
-    port: '80'
-    proto: 'http'
-    auth_key: 'Z0ZcM7B4UOYfALLmLNhEdXkW5Ro'
+  mon_type: nagios
 openstack:
     vcpus_allocation_ratio: 2.0
     ram_allocation_ratio: 1.0
@@ -17,11 +11,11 @@ openstack:
     reserved_vcpus: 0
     # use neutron quotas (overwrites default limits call)
     neutron_quotas: false
-#nagios:
-#  prod:
-#    url: 'http://my-prod-nagios/cgi-bin/nagios3/'
-#    username: 'nagios'
-#    password: 'nagios'
+nagios:
+  prod:
+    url: 'http://10.49.57.77/nagios/'
+    username: 'nagiosadmin'
+    password: 'nagiosadmin'
 aviator:
   provider: openstack
   auth_service:
