@@ -33,11 +33,13 @@ ADD files/sensu.repo /etc/yum.repos.d/sensu.repo
 RUN yum install -y sensu
 
 #Sensu - Config
-#ADD /files/config.json /etc/sensu/config.json
-RUN mv /etc/sensu/config.json.example /etc/sensu/config.json
+ADD /files/config.json /etc/sensu/config.json
 
 #Sensu - Dashboard (Uchiwa)
 RUN yum install -y uchiwa
+
+#Sensu - Dashboard - Config
+ADD /files/uchiwa.json /etc/sensu/uchiwa.json
 
 # Setup networking & ports
 EXPOSE 22 8080 4567 3000
