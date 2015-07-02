@@ -1,7 +1,7 @@
 {
   "sensu": [
     {
-      "name": "Site 1-KR",
+      "name": "Site 1-KR22",
       "host": "localhost",
       "port": 4567,
       "timeout": 5
